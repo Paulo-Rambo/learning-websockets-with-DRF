@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Count</title>
+  </head>
+  <body>
+    <h1 id="count">0</h1>
+    <button id="add">Add</button>
+
+    <script>
+      var socket = new WebSocket("ws://127.0.0.1:8000/ws/count/");
+
+      socket.onmessage = function (e) {
+        document.getElementById("count").innerHTML = e.data;
+      };
+
+      document.getElementById("add").addEventListener("click", function () {
+        fetch("/", {
+          method: "POST",
+        });
+      });
+    </script>
+  </body>
+</html>
